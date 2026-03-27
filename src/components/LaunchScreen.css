@@ -1,0 +1,125 @@
+.launch-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.launch-screen.exit {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.launch-orb {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.launch-orb .core {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe234, #f1c40f, #d4a017);
+  animation: pulse 2s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: #000;
+  z-index: 2;
+}
+
+.orbit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(241,196,15,0.3);
+  animation: spin linear infinite;
+}
+.orbit-ring:nth-child(2) { animation-duration: 6s; }
+.orbit-ring:nth-child(3) {
+  inset: 20px;
+  border-color: rgba(241,196,15,0.15);
+  animation-duration: 9s;
+  animation-direction: reverse;
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: orbitA 6s linear infinite;
+}
+.orbit-dot-2 {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(241,196,15,0.6);
+  animation: orbitB 9s linear infinite;
+}
+
+.launch-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.launch-title span {
+  color: var(--gold);
+}
+
+.launch-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.launch-progress-wrap {
+  width: 280px;
+  height: 3px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 10px;
+  overflow: hidden;
+  animation: fadeIn 0.5s 0.4s ease both;
+}
+
+.launch-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #d4a017, #f1c40f, #ffe234);
+  background-size: 200%;
+  animation: gradientShift 1.5s linear infinite;
+  border-radius: 10px;
+  transition: width 0.1s linear;
+}
+
+.launch-percent {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  animation: fadeIn 0.5s 0.6s ease both;
+}
